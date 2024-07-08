@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"wyag/cmd"
 )
 
 func main() {
@@ -28,12 +29,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	cmd := os.Args[1]
+	command := os.Args[1]
 
-	switch cmd {
+	switch command {
 	case "init":
 		initCmd.Parse(os.Args[2:])
-		fmt.Println(initCmd.Args())
+		cmd.Init(initCmd.Args())
 	default:
 		fmt.Println("Unknown subcommand")
 		os.Exit(1)
